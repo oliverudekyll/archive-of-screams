@@ -1,9 +1,15 @@
 @font-face {
-    font-family: "ABCRepro-Medium";
-    font-weight: normal;
-    font-style: normal;
-    font-display: auto;
-    src: url("../fonts/ABCRepro-Medium-Trial.woff") format("woff"), url("../fonts/ABCRepro-Medium-Trial.woff2") format("woff2");
-  }
-  
-  
+  font-family: "Helvetica Neue LT Std 75 Bold";
+  src: url("https://db.onlinewebfonts.com/t/9ac7e2ff6b9792291e65269b982efa35.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/9ac7e2ff6b9792291e65269b982efa35.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "Helvetica Neue LT Std 93 Black Extended Oblique";
+  src: url("https://db.onlinewebfonts.com/t/2f1227e0ad53cef1ec302feeb8c3a367.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2f1227e0ad53cef1ec302feeb8c3a367.woff")
+      format("woff");
+}
