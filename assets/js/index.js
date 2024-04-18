@@ -1,3 +1,9 @@
+const loadingOverlay = document.getElementById("loading-overlay");
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadingOverlay.style.opacity = "0";
+});
+
 const cursorCaption = document.getElementById("cursor-caption");
 const cursor = document.getElementById("cursor-caption_cursor");
 const caption = document.getElementById("cursor-caption_caption");
