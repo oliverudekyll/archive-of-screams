@@ -2,6 +2,7 @@ const loadingOverlay = document.getElementById("loading-overlay");
 
 document.addEventListener("DOMContentLoaded", () => {
   loadingOverlay.style.opacity = "0";
+  document.body.classList.remove("overflow-none");
 });
 
 const cursorCaption = document.getElementById("cursor-caption");

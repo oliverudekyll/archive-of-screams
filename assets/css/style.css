@@ -40,6 +40,8 @@ body {
 
   animation: loading 3s steps(6) infinite;
 
+  overflow: hidden;
+  pointer-events: none;
   transition: all var(--transition);
 }
 
