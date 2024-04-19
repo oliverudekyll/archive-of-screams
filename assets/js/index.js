@@ -45,7 +45,7 @@ const prefaceAbout = document.getElementById("preface__about");
 window.addEventListener("scroll", () => {
   let prefaceRect = preface.getBoundingClientRect();
   /* prefaceAbout.style.opacity = `${prefaceRect.bottom / window.innerHeight}`; */
-  if (prefaceAbout.clientHeight >= prefaceRect.bottom) {
+  if (prefaceRect.bottom <= window.innerHeight / 2) {
     prefaceAbout.style.transform = `translateY(-${prefaceAbout.clientHeight}px)`;
     prefaceAbout.style.opacity = "0";
   } else {
