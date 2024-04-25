@@ -8,6 +8,8 @@
   --default-timing-function: ease-in-out;
   --bounce-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --sans-fallback: Helvetica, Arial, sans-serif;
+
+  --text-colour: hsl(0, 0%, 70%);
 }
 
 body {
@@ -40,9 +42,117 @@ body {
 
   animation: loading 3s steps(6) infinite;
 
+  z-index: 1000;
   overflow: hidden;
   pointer-events: none;
   transition: all var(--transition);
+}
+
+.title {
+  position: fixed;
+  padding: 1rem;
+  padding-top: 1rem;
+
+  color: var(--text-colour);
+  font-family: "Helvetica Neue LT Std 93 Black Extended Oblique",
+    var(--sans-fallback);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.5rem; /* 100% */
+  letter-spacing: -0.045rem;
+
+  z-index: 998;
+}
+
+.menu-btn--container {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  z-index: 999;
+}
+
+#menu-btn {
+  padding: 1rem 0.75rem 1rem 1rem;
+
+  font-family: "Helvetica Neue LT Std 93 Black Extended Oblique",
+    var(--sans-fallback);
+  font-weight: normal;
+  font-size: 2.25rem;
+  font-size: 1.75rem;
+  line-height: 67%;
+  letter-spacing: -0.045em;
+  text-align: center;
+  color: var(--text-colour);
+
+  transition: all var(--transition-fast);
+}
+
+#menu-btn:hover {
+  color: hsl(0, 0%, 85%);
+}
+
+#menu-dropdown {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  z-index: 998;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all var(--transition-fast);
+}
+
+.menu-dropdown--active {
+  display: block !important;
+}
+
+#menu-dropdown__list {
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column;
+
+  text-align: left;
+  line-height: 100%;
+}
+
+.menu-dropdown__list__item::before {
+  position: relative;
+  content: "";
+  width: 1rem;
+  height: 10rem;
+  font-size: 8rem;
+  line-height: 10rem;
+  margin-right: 1rem;
+  margin-left: -1rem;
+
+  z-index: 999;
+}
+
+.menu-dropdown__list__item {
+  margin-bottom: -3.5rem;
+}
+
+.menu-dropdown__list__item--link {
+  font-family: "Helvetica Neue LT Std 75 Bold", var(--sans-fallback);
+  font-size: 15rem;
+  line-height: 100%;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+  color: var(--text-colour);
+  text-decoration: none;
+
+  cursor: none;
+  transition: all var(--transition-fast);
+}
+
+.menu-dropdown__list__item--link:hover {
+  color: hsl(0, 0%, 85%);
 }
 
 #cursor-caption {
@@ -90,12 +200,13 @@ body {
 
 #preface__about {
   position: sticky;
+  width: calc(66.6vw + 2rem);
   top: 0;
   padding: 1rem;
   padding-top: 1rem;
 
-  color: hsl(0, 0%, 70%);
-  text-align: justify;
+  color: var(--text-colour);
+  text-align: left;
   font-family: "Helvetica Neue LT Std 75 Bold", var(--sans-fallback);
   font-size: 1.5rem;
   font-style: normal;
@@ -110,6 +221,7 @@ body {
 .preface__about__title {
   font-family: "Helvetica Neue LT Std 93 Black Extended Oblique",
     var(--sans-fallback);
+  color: transparent;
 }
 
 .content {
@@ -176,11 +288,23 @@ body {
   }
 
   #preface__about {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 900;
-    line-height: 1rem; /* 100% */
+    line-height: 1.25rem; /* 100% */
     letter-spacing: -0.045rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1.25rem; /* 100% */
+    letter-spacing: -0.045rem;
+  }
+
+  #menu-btn {
+    font-size: 1.5rem;
   }
 
   .content {
