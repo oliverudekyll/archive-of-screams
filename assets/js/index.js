@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const cursorCaption = document.getElementById("cursor-caption");
-const cursor = document.getElementById("cursor-caption_cursor");
-const caption = document.getElementById("cursor-caption_caption");
+const cursor = document.getElementById("cursor-caption__cursor");
+const caption = document.getElementById("cursor-caption__caption");
+const date = document.getElementById("cursor-caption__date");
 
 const cursorMove = function (event) {
   const mouseX = event.clientX;
@@ -24,14 +25,18 @@ const contentImages = document.querySelectorAll(".content__img");
 contentImages.forEach(function (image) {
   image.addEventListener("mouseover", function (event) {
     const imageCaption = event.target.dataset.caption;
+    const imageDate = event.target.dataset.date;
 
     caption.innerText = imageCaption;
     caption.style.opacity = "1";
+    date.innerText = imageDate;
+    date.style.opacity = "1";
     cursor.style.width = "0";
     cursor.style.height = "0";
     cursor.style.opacity = "0";
     onmouseout = (event) => {
       caption.style.opacity = "0";
+      date.style.opacity = "0";
       cursor.style.width = "";
       cursor.style.height = "";
       cursor.style.opacity = "";
