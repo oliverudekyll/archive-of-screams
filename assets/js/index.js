@@ -1,12 +1,11 @@
 const loadingOverlay = document.getElementById("loading-overlay");
 
 const prefaceAbout = document.getElementById("preface__about");
+/* prefaceAbout.style.transform = "translateY(2rem)"; */
 
 document.addEventListener("DOMContentLoaded", () => {
   loadingOverlay.style.opacity = "0";
   document.body.classList.remove("overflow-none");
-  prefaceAbout.style.opacity = "1";
-  prefaceAbout.style.transform = "translateY(0)";
 });
 
 const prefaceParagraphs = document.querySelectorAll(".preface__about__p");
@@ -24,20 +23,17 @@ window.addEventListener("scroll", () => {
   const h = window.innerHeight;
 
   const wv = Math.min(100, Math.max(90, (1 - rect.top / h) * 30 + 70));
-
   const tv = (rect.top / h) * 20;
-
+  const pTv = Math.min(innerHeight, window.scrollY / 1.7);
   const ov = 1 - rect.top / h;
   const bv = (rect.top / h) * 20;
-
   const hv = Math.max(50, (1 - window.scrollY / h) * 30 + 70);
-
-  console.log(hv);
 
   content.style.transform = `translateY(${tv}vh)`;
   content.style.opacity = `${ov}`;
   /* content.style.filter = `blur(${bv}px)`; */
-  prefaceAbout.style.minHeight = `${hv}vh`;
+  /* prefaceAbout.style.minHeight = `${hv}vh`; */
+  prefaceAbout.style.transform = `translateY(-${pTv}px)`;
 
   contentImages.forEach(function (image) {
     let rect = image.getBoundingClientRect();

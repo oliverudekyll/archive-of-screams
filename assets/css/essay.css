@@ -1,0 +1,158 @@
+:root {
+  --one-third: calc(100vw / 3);
+  --two-third: calc(100vw / 3 * 2);
+  --one-twelfth: calc(100vw / 12);
+  --one-twelfth-neg: calc(-100vw / 12);
+  --transition: 0.7s ease-in-out;
+  --transition-fast: 0.25s ease-in-out;
+  --default-timing-function: ease-in-out;
+  --bounce-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --sans-fallback: Helvetica, Arial, sans-serif;
+  --h-light: "Helvetica Light", Helvetica, Arial, sans-serif;
+  --h-regular: "Helvetica", Helvetica, Arial, sans-serif;
+  --h-bold: "Helvetica Neue LT Std 75 Bold", Helvetica, Arial, sans-serif;
+  --h-black-e-i: "Helvetica Neue LT Std 93 Black Extended Oblique", Helvetica,
+    Arial, sans-serif;
+  --fleur: "Fleur De Leah", "Snell Roundhand", "Brush Script MT", cursive;
+
+  --text-colour: red;
+  --hover-colour: hsl(0, 0%, 85%);
+}
+
+body {
+  background-color: #fff;
+  /* cursor: none; */
+}
+
+::selection {
+  background: var(--hover-colour);
+}
+
+.overflow-none {
+  overflow: hidden;
+}
+
+@keyframes loading {
+  from {
+    background-color: red;
+  }
+  50% {
+    background-color: hsl(0, 0%, 50%);
+  }
+  to {
+    background-color: red;
+  }
+}
+
+#loading-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  z-index: 1000;
+
+  animation: loading 3s steps(6) infinite;
+
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all var(--transition);
+}
+
+.title {
+  position: fixed;
+  padding: 1rem;
+  padding-top: 0.5rem;
+
+  color: var(--text-colour);
+  font-family: var(--fleur);
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 2.5rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  z-index: 998;
+}
+
+.title :hover {
+  color: var(--hover-colour);
+}
+
+#menu-btn {
+  position: fixed;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  right: 0;
+
+  z-index: 999;
+}
+
+#menu-btn a {
+  color: var(--text-colour);
+  font-family: var(--fleur);
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 2.5rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#menu-btn a:hover {
+  color: var(--hover-colour);
+}
+
+.content {
+  max-width: 120ch;
+  min-height: calc(100vh - 3.8rem);
+  padding: 1rem;
+}
+
+.content__p {
+  margin-bottom: 1.25rem;
+
+  font-family: var(--sans-fallback);
+  font-size: 1.25rem;
+  line-height: 1.375rem;
+  font-style: normal;
+
+  letter-spacing: -0.025rem;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 4 3;
+  text-align: left;
+
+  color: var(--text-colour);
+}
+
+.colophon {
+  position: relative;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.colophon__p {
+  font-family: var(--sans-fallback);
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  font-style: normal;
+
+  letter-spacing: 0.01em;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 4 3;
+  text-align: left;
+
+  color: var(--text-colour);
+}
+
+i {
+  font-style: italic;
+}
+
+a {
+  color: var(--text-colour);
+}
