@@ -22,7 +22,7 @@
 
 body {
   background-color: #fff;
-  /* cursor: none; */
+  cursor: none;
 }
 
 ::selection {
@@ -60,6 +60,50 @@ body {
   transition: all var(--transition);
 }
 
+#cursor-caption {
+  position: fixed;
+  max-width: calc(100vw / 6);
+  min-width: min-content;
+
+  font-family: Helvetica, var(--sans-fallback);
+  font-weight: normal;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: red;
+
+  /* mix-blend-mode: difference; */
+  pointer-events: none;
+  z-index: 999;
+}
+
+#cursor-caption__cursor {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1.4px solid var(--text-colour);
+  border-radius: 100%;
+
+  z-index: 999;
+  transition: all 0.25s var(--bounce-timing-function),
+    background-color 0.35s ease-in;
+}
+
+.highlight {
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-color: hsl(0, 100%, 50%);
+}
+
+.pointer {
+  cursor: none;
+}
+
 .title {
   position: fixed;
   padding: 1rem;
@@ -88,7 +132,7 @@ body {
   padding-top: 0.5rem;
   right: 0;
 
-  z-index: 999;
+  z-index: 998;
 }
 
 #menu-btn a {
@@ -103,7 +147,8 @@ body {
   text-decoration: none;
 }
 
-#menu-btn a:hover {
+#menu-btn a:hover,
+a:hover {
   color: var(--hover-colour);
 }
 

@@ -1,7 +1,6 @@
 const loadingOverlay = document.getElementById("loading-overlay");
 
 const prefaceAbout = document.getElementById("preface__about");
-/* prefaceAbout.style.transform = "translateY(2rem)"; */
 
 document.addEventListener("DOMContentLoaded", () => {
   loadingOverlay.style.opacity = "0";
@@ -24,15 +23,13 @@ window.addEventListener("scroll", () => {
 
   const wv = Math.min(100, Math.max(90, (1 - rect.top / h) * 30 + 70));
   const tv = (rect.top / h) * 20;
-  const pTv = Math.min(innerHeight, window.scrollY / 1.7);
-  const ov = 1 - rect.top / h;
+  const pTv = Math.min(innerHeight, window.scrollY / 2);
+  const ov = Math.min(1, (1 - rect.top / h) * 1.5);
   const bv = (rect.top / h) * 20;
   const hv = Math.max(50, (1 - window.scrollY / h) * 30 + 70);
 
   content.style.transform = `translateY(${tv}vh)`;
   content.style.opacity = `${ov}`;
-  /* content.style.filter = `blur(${bv}px)`; */
-  /* prefaceAbout.style.minHeight = `${hv}vh`; */
   prefaceAbout.style.transform = `translateY(-${pTv}px)`;
 
   contentImages.forEach(function (image) {
@@ -47,12 +44,41 @@ const cursorCaption = document.getElementById("cursor-caption");
 const cursor = document.getElementById("cursor-caption__cursor");
 const caption = document.getElementById("cursor-caption__caption");
 const date = document.getElementById("cursor-caption__date");
+const pointerElements = document.querySelectorAll(".pointer");
+
+pointerElements.forEach((e) => {
+  e.addEventListener("mouseover", () => {
+    cursor.classList.add("highlight");
+    onmouseout = (event) => {
+      cursor.classList.remove("highlight");
+    };
+  });
+});
 
 const cursorMove = function (event) {
   const mouseX = event.clientX;
   const mouseY = event.clientY;
   cursorCaption.style.left = `${mouseX - cursorCaption.clientWidth / 2}px`;
   cursorCaption.style.top = `${mouseY - cursorCaption.clientHeight / 2}px`;
+
+  const c = Math.random() * 2;
+  const trace = document.createElement("span");
+  trace.className = "cursor-trace";
+  const r = Math.random() * 0.25;
+  const offsetY = Math.random() * 50 - 50;
+  const offsetX = Math.random() * 50 - 50;
+  trace.style.width = `${r}rem`;
+  trace.style.height = `${r}rem`;
+  trace.style.top = `${event.clientY + offsetY}px`;
+  trace.style.left = `${event.clientX + offsetX}px`;
+
+  if (c > 0) {
+    document.body.appendChild(trace);
+    setTimeout(() => {
+      document.body.removeChild(trace);
+    }, 1000);
+  } else {
+  }
 };
 
 document.addEventListener("DOMContentLoaded", cursorMove);
@@ -112,9 +138,13 @@ const menuOpen = function () {
   if (!menuDropdown.classList.contains("menu-dropdown--active")) {
     menuDropdown.classList.toggle("menu-dropdown--active");
     menuButton.innerHTML = `Back&thinsp;`;
+    menuButton.title = "Back";
+    menuButton.ariaLabel = "Back";
   } else {
     menuDropdown.classList.toggle("menu-dropdown--active");
     menuButton.innerHTML = `Menu`;
+    menuButton.title = "Menu";
+    menuButton.ariaLabel = "Menu";
   }
 };
 
