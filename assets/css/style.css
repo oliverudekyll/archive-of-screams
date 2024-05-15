@@ -198,7 +198,7 @@ body {
   display: block;
   margin-top: 0.15rem;
 
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   letter-spacing: 0.1em;
 
   transition: all var(--transition-fast);
@@ -211,17 +211,33 @@ body {
 
 #preface__about {
   position: sticky;
-  max-width: 1000px;
-  margin: auto;
   top: 0;
-  padding: 1rem;
-  padding-top: 4rem;
+  min-height: 100vh;
+  padding: 4rem 4rem 2rem 4rem;
 
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  opacity: 0;
+  transform: translateY(-2rem);
+
+  transition: transform 0.75s var(--default-timing-function),
+    opacity 1s var(--default-timing-function);
+}
+
+.preface__about__section {
+  max-width: 1000px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+}
 
-  transition: transform 0.5s var(--default-timing-function),
-    opacity 0.25s var(--default-timing-function);
+.align-right {
+  align-self: flex-end;
+}
+
+.align-center {
+  align-self: center;
 }
 
 .preface__about__p {
@@ -232,7 +248,7 @@ body {
   line-height: 1.25rem; /* 100% */
   letter-spacing: -0.045rem;
   hyphens: auto;
-  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-chars: 7 4 3;
   text-align: left;
 
   color: var(--text-colour);
@@ -256,7 +272,7 @@ body {
 }
 
 #content {
-  /* width: 100vw; */
+  width: 100vw;
   margin: auto;
 
   display: grid;
@@ -339,7 +355,7 @@ body {
     font-size: 1.5rem;
   }
 
-  .content {
+  #content {
     grid-template-columns: repeat(1, 100vw);
   }
 

@@ -1,8 +1,21 @@
 const loadingOverlay = document.getElementById("loading-overlay");
 
+const prefaceAbout = document.getElementById("preface__about");
+
 document.addEventListener("DOMContentLoaded", () => {
   loadingOverlay.style.opacity = "0";
   document.body.classList.remove("overflow-none");
+  prefaceAbout.style.opacity = "1";
+  prefaceAbout.style.transform = "translateY(0)";
+});
+
+const prefaceParagraphs = document.querySelectorAll(".preface__about__p");
+
+prefaceParagraphs.forEach((p) => {
+  const c = p.dataset.column;
+  const s = p.dataset.span;
+
+  p.style.gridColumn = `${c} / span ${s}`;
 });
 
 window.addEventListener("scroll", () => {
@@ -10,14 +23,28 @@ window.addEventListener("scroll", () => {
   let rect = content.getBoundingClientRect();
   const h = window.innerHeight;
 
-  const wv = Math.min(100, Math.max(1, (1 - rect.top / h) * 100));
+  const wv = Math.min(100, Math.max(90, (1 - rect.top / h) * 30 + 70));
+
+  const tv = (rect.top / h) * 20;
 
   const ov = 1 - rect.top / h;
-  const bv = (rect.top / h) * 50;
+  const bv = (rect.top / h) * 20;
 
-  content.style.width = `${wv}vw`;
+  const hv = Math.max(50, (1 - window.scrollY / h) * 30 + 70);
+
+  console.log(hv);
+
+  content.style.transform = `translateY(${tv}vh)`;
   content.style.opacity = `${ov}`;
-  content.style.filter = `blur(${bv}px)`;
+  /* content.style.filter = `blur(${bv}px)`; */
+  prefaceAbout.style.minHeight = `${hv}vh`;
+
+  contentImages.forEach(function (image) {
+    let rect = image.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      image.style.transform = "translate(0)";
+    }
+  });
 });
 
 const cursorCaption = document.getElementById("cursor-caption");
@@ -60,7 +87,6 @@ contentImages.forEach(function (image) {
 });
 
 const preface = document.getElementById("preface");
-const prefaceAbout = document.getElementById("preface__about");
 
 /* window.addEventListener("scroll", () => {
   let prefaceRect = preface.getBoundingClientRect();
@@ -86,7 +112,7 @@ const prefaceAbout = document.getElementById("preface__about");
 const menuButton = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 
-menuButton.onclick = function () {
+const menuOpen = function () {
   if (!menuDropdown.classList.contains("menu-dropdown--active")) {
     menuDropdown.classList.toggle("menu-dropdown--active");
     menuButton.innerHTML = `Back&thinsp;`;
@@ -96,11 +122,5 @@ menuButton.onclick = function () {
   }
 };
 
-const prefaceParagraphs = document.querySelectorAll(".preface__about__p");
-
-prefaceParagraphs.forEach((p) => {
-  const c = p.dataset.column;
-  const s = p.dataset.span;
-
-  p.style.gridColumn = `${c} / span ${s}`;
-});
+menuButton.onclick = menuOpen;
+menuDropdown.onclick = menuOpen;
