@@ -5,6 +5,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.remove("overflow-none");
 });
 
+window.addEventListener("scroll", () => {
+  const content = document.getElementById("content");
+  let rect = content.getBoundingClientRect();
+  const h = window.innerHeight;
+
+  const wv = Math.min(100, Math.max(1, (1 - rect.top / h) * 100));
+
+  const ov = 1 - rect.top / h;
+  const bv = (rect.top / h) * 50;
+
+  content.style.width = `${wv}vw`;
+  content.style.opacity = `${ov}`;
+  content.style.filter = `blur(${bv}px)`;
+});
+
 const cursorCaption = document.getElementById("cursor-caption");
 const cursor = document.getElementById("cursor-caption__cursor");
 const caption = document.getElementById("cursor-caption__caption");
@@ -47,9 +62,8 @@ contentImages.forEach(function (image) {
 const preface = document.getElementById("preface");
 const prefaceAbout = document.getElementById("preface__about");
 
-window.addEventListener("scroll", () => {
+/* window.addEventListener("scroll", () => {
   let prefaceRect = preface.getBoundingClientRect();
-  /* prefaceAbout.style.opacity = `${prefaceRect.bottom / window.innerHeight}`; */
   if (
     prefaceRect.bottom <= window.innerHeight / 2 ||
     prefaceAbout.clientHeight >= prefaceRect.bottom
@@ -65,11 +79,9 @@ window.addEventListener("scroll", () => {
     let rect = image.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
       image.style.transform = "translate(0)";
-    } /* else {
-      image.style.transform = "";
-    } */
+    }
   });
-});
+}); */
 
 const menuButton = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
@@ -77,9 +89,18 @@ const menuDropdown = document.getElementById("menu-dropdown");
 menuButton.onclick = function () {
   if (!menuDropdown.classList.contains("menu-dropdown--active")) {
     menuDropdown.classList.toggle("menu-dropdown--active");
-    menuButton.innerHTML = `B<br>a<br>c<br>k`;
+    menuButton.innerHTML = `Back&thinsp;`;
   } else {
     menuDropdown.classList.toggle("menu-dropdown--active");
-    menuButton.innerHTML = `M<br>e<br>n<br>u`;
+    menuButton.innerHTML = `Menu`;
   }
 };
+
+const prefaceParagraphs = document.querySelectorAll(".preface__about__p");
+
+prefaceParagraphs.forEach((p) => {
+  const c = p.dataset.column;
+  const s = p.dataset.span;
+
+  p.style.gridColumn = `${c} / span ${s}`;
+});
