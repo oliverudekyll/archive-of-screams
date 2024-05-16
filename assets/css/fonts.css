@@ -25,3 +25,9 @@
       format("woff2"),
     url("/assets/fonts/Helvetica\ Neue\ LT\ Pro\ Roman.woff") format("woff");
 }
+
+@font-face {
+  font-family: "Fleur De Leah";
+  src: url("/assets/fonts/FleurDeLeah-Regular.woff") format("woff"),
+    url("/assets/fonts/FleurDeLeah-Regular.woff2") format("woff2");
+}

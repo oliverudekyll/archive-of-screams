@@ -113,11 +113,11 @@ body {
   font-family: var(--fleur);
   font-size: 2.5rem;
   font-style: normal;
-  font-weight: 100;
   line-height: 2.5rem;
   letter-spacing: 0;
   text-transform: uppercase;
   text-decoration: none;
+  -webkit-text-stroke: 1.5px var(--text-colour);
 
   z-index: 998;
 }
@@ -145,11 +145,13 @@ body {
   letter-spacing: 0;
   text-transform: uppercase;
   text-decoration: none;
+  -webkit-text-stroke: 1.5px var(--text-colour);
 }
 
 #menu-btn a:hover,
 a:hover {
   color: var(--hover-colour);
+  -webkit-text-stroke-color: var(--hover-colour);
 }
 
 .content {
@@ -214,6 +216,7 @@ a {
     position: fixed;
     min-width: 100vw;
     min-height: 100vh;
+    padding: 1rem;
 
     display: flex;
     justify-content: center;
