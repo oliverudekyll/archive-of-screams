@@ -200,3 +200,32 @@ i {
 a {
   color: var(--text-colour);
 }
+
+#mobile-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    overlay: hidden;
+  }
+
+  #mobile-overlay {
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--h-regular);
+    font-size: 1.25rem;
+    letter-spacing: -0.045rem;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: red;
+
+    z-index: 1000;
+  }
+}

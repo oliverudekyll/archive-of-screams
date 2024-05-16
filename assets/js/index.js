@@ -24,13 +24,15 @@ window.addEventListener("scroll", () => {
   const wv = Math.min(100, Math.max(90, (1 - rect.top / h) * 30 + 70));
   const tv = (rect.top / h) * 20;
   const pTv = Math.min(innerHeight, window.scrollY / 2);
-  const ov = Math.min(1, (1 - rect.top / h) * 1.5);
+  const ov = Math.min(1, (1 - rect.top / h) * 3);
+  const pOv = Math.min(1, (rect.top / h) * 0.75);
   const bv = (rect.top / h) * 20;
   const hv = Math.max(50, (1 - window.scrollY / h) * 30 + 70);
 
   content.style.transform = `translateY(${tv}vh)`;
   content.style.opacity = `${ov}`;
   prefaceAbout.style.transform = `translateY(-${pTv}px)`;
+  prefaceAbout.style.opacity = pOv;
 
   contentImages.forEach(function (image) {
     let rect = image.getBoundingClientRect();
