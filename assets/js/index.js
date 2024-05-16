@@ -1,6 +1,8 @@
 const loadingOverlay = document.getElementById("loading-overlay");
 
+const preface = document.getElementById("preface");
 const prefaceAbout = document.getElementById("preface__about");
+preface.style.height = `${prefaceAbout.clientHeight}px`;
 
 document.addEventListener("DOMContentLoaded", () => {
   loadingOverlay.style.opacity = "0";
@@ -110,8 +112,6 @@ contentImages.forEach(function (image) {
     };
   });
 });
-
-const preface = document.getElementById("preface");
 
 const menuButton = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
