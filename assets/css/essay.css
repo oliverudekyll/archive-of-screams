@@ -163,13 +163,13 @@ a:hover {
 .content__p {
   margin-bottom: 1.25rem;
 
-  font-family: var(--sans-fallback);
+  font-family: var(--h-bold);
   font-size: 1.25rem;
-  line-height: 1.375rem;
+  line-height: 1.3rem;
   font-style: normal;
 
   letter-spacing: -0.025rem;
-  hyphens: auto;
+  hyphens: none;
   hyphenate-limit-chars: 7 4 3;
   text-align: left;
 
@@ -183,9 +183,9 @@ a:hover {
 }
 
 .colophon__p {
-  font-family: var(--sans-fallback);
-  font-size: 0.9rem;
-  line-height: 0.9rem;
+  font-family: var(--h-bold);
+  font-size: 0.8rem;
+  line-height: 0.8rem;
   font-style: normal;
 
   letter-spacing: 0.01em;
@@ -205,6 +205,32 @@ a {
 
 #mobile-overlay {
   display: none;
+}
+
+@media screen and (max-width: 1150px) {
+  .content {
+    max-width: 110.4ch;
+  }
+  .content__p {
+    font-size: 1.15rem;
+    line-height: 1.196rem;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .content {
+    max-width: 100.8ch;
+  }
+  /*   .content__p {
+    font-size: 1.05rem;
+    line-height: 1.092rem;
+  } */
+}
+
+@media screen and (max-width: 1070px) {
+  .content {
+    max-width: 80ch;
+  }
 }
 
 @media screen and (max-width: 800px) {

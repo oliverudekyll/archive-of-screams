@@ -113,27 +113,6 @@ contentImages.forEach(function (image) {
 
 const preface = document.getElementById("preface");
 
-/* window.addEventListener("scroll", () => {
-  let prefaceRect = preface.getBoundingClientRect();
-  if (
-    prefaceRect.bottom <= window.innerHeight / 2 ||
-    prefaceAbout.clientHeight >= prefaceRect.bottom
-  ) {
-    prefaceAbout.style.transform = `translateY(-${prefaceAbout.clientHeight}px)`;
-    prefaceAbout.style.opacity = "0";
-  } else {
-    prefaceAbout.style.transform = "";
-    prefaceAbout.style.opacity = "1";
-  }
-
-  contentImages.forEach(function (image) {
-    let rect = image.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      image.style.transform = "translate(0)";
-    }
-  });
-}); */
-
 const menuButton = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 
