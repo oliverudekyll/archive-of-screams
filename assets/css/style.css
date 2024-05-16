@@ -132,25 +132,14 @@ body {
   line-height: 100%;
 }
 
-.menu-dropdown__list__item::before {
-  position: relative;
-  content: "";
-  width: 1rem;
-  height: 10rem;
-  font-size: 8rem;
-  line-height: 10rem;
-  margin-right: 1rem;
-  margin-left: -1rem;
-
-  z-index: 999;
-}
-
 .menu-dropdown__list__item {
   width: min-content;
   margin-bottom: -3.5rem;
 }
 
 .menu-dropdown__list__item--link {
+  padding: 1rem 1rem 0 0;
+
   font-family: var(--h-bold);
   font-size: clamp(2rem, 25vw, 15rem);
   line-height: 100%;
